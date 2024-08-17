@@ -1,0 +1,19 @@
+{
+  "name": "ref-arch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lerna run dev --parallel"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^8.1.8",
+    "rollup-plugin-generate-package-json": "^3.2.0"
+  }
+}
