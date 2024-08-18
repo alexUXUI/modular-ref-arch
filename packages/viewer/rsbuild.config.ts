@@ -9,18 +9,17 @@ export default defineConfig({
     template: './src/index.html',
   },
   // enable to get typescript support
-  // tools: {
-  //   rspack: {
-  //     plugins: [
-  //       new ModuleFederationPlugin({
-  //         name: 'federation_consumer',
-  //         remotes: {
-  //           federation_provider:
-  //             'federation_provider@http://localhost:4001/mf-manifest.json',
-  //         },
-  //         // shared: ['lit'],
-  //       }),
-  //     ],
-  //   },
-  // },
+  tools: {
+    rspack: {
+      plugins: [
+        new ModuleFederationPlugin({
+          name: 'kernel',
+          remotes: {
+            plugin: 'plugin@http://localhost:4001/mf-manifest.json',
+          },
+          // shared: ['lit'],
+        }),
+      ],
+    },
+  },
 });

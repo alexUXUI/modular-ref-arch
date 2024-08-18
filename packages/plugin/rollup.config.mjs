@@ -9,36 +9,36 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 
 export default {
-    input: './src/index.ts',
-    plugins: [
-        // Clear the build directory
-        del({ targets: 'build/*' }),
-        // Resolve bare module specifiers to relative paths
-        resolve(),
-        // Convert CommonJS modules to ES6
-        commonjs(),
-        // Handle JSON files
-        json(),
-        // Handle TypeScript files
-        typescript(),
-        // Minify JS
-        terser({
-            ecma: 2021,
-            module: true,
-            warnings: true,
-        }),
-        // Print bundle summary
-        summary(),
-        generatePackageJson({
-            baseContents: {
-                name: "accuris-plugin",
-                version: "0.0.1",
-                main: "index.js"
-            }
-        })
-    ],
-    output: {
-        dir: 'build',
-    },
-    preserveEntrySignatures: 'strict',
+  input: './src/index.ts',
+  plugins: [
+    // Clear the build directory
+    del({ targets: 'package/*' }),
+    // Resolve bare module specifiers to relative paths
+    resolve(),
+    // Convert CommonJS modules to ES6
+    commonjs(),
+    // Handle JSON files
+    json(),
+    // Handle TypeScript files
+    typescript(),
+    // Minify JS
+    terser({
+      ecma: 2021,
+      module: true,
+      warnings: true,
+    }),
+    // Print bundle summary
+    summary(),
+    generatePackageJson({
+      baseContents: {
+        name: 'accuris-plugin',
+        version: '0.0.1',
+        main: 'index.js',
+      },
+    }),
+  ],
+  output: {
+    dir: 'package',
+  },
+  preserveEntrySignatures: 'strict',
 };
