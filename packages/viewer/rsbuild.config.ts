@@ -8,19 +8,25 @@ export default defineConfig({
   html: {
     template: './src/index.html',
   },
+  dev: {
+    // It is necessary to configure assetPrefix, and in the production environment, you need to configure output.assetPrefix
+    assetPrefix: true,
+  },
   // enable to get typescript support
-  // tools: {
-  //   rspack: {
-  //     plugins: [
-  //       new ModuleFederationPlugin({
-  //         name: 'federation_consumer',
-  //         remotes: {
-  //           federation_provider:
-  //             'federation_provider@http://localhost:4001/mf-manifest.json',
-  //         },
-  //         // shared: ['lit'],
-  //       }),
-  //     ],
-  //   },
-  // },
+  tools: {
+    rspack: {
+      plugins: [
+        new ModuleFederationPlugin({
+          name: 'viewer',
+          remotes: {
+            plugin: 'plugin@http://localhost:4001/mf-manifest.json',
+          },
+          exposes: {
+            './viewer': './src/index.ts',
+          },
+          // shared: ['lit'],
+        }),
+      ],
+    },
+  },
 });

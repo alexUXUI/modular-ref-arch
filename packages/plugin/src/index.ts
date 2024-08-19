@@ -1,38 +1,10 @@
-import('./bootstrap.ts')
+export const register = (kernel: any) => {
+  console.log('[Kernel] RegisterPlugin', kernel);
+  import('./plugin.ts').then((module) => {
+    customElements.define('plugin-element', module.PluginElement);
+  });
+};
 
-// import { html, css, LitElement } from 'lit';
-
-// export class PluginElement extends LitElement {
-//   static styles = css`
-//     .content {
-//       display: flex;
-//       min-height: 100vh;
-//       line-height: 1.1;
-//       text-align: center;
-//       flex-direction: column;
-//       justify-content: center;
-//     }
-
-//     .content h1 {
-//       font-size: 3.6rem;
-//       font-weight: 700;
-//     }
-
-//     .content p {
-//       font-size: 1.2rem;
-//       font-weight: 400;
-//       opacity: 0.5;
-//     }
-//   `;
-
-//   render() {
-//     return html`
-//       <div class="content">
-//         <h1>Plugin</h1>
-//       </div>
-//     `;
-//   }
-// }
-
-// // Register the custom element
-// customElements.define('plugin-element', PluginElement);
+if (process.env.NODE_ENV === 'development') {
+  register(window);
+}

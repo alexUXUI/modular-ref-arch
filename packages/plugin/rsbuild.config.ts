@@ -16,21 +16,20 @@ export default defineConfig({
     rspack: {
       output: {
         // You need to set a unique value that is not equal to other applications
-        uniqueName: 'federation_provider'
+        uniqueName: 'plugin',
       },
       plugins: [
         new ModuleFederationPlugin({
-          name: 'federation_provider',
+          name: 'plugin',
           exposes: {
-            './plugin': './src/plugin.ts',
-            './accuris-plugin': './build/index.js',
+            './accuris-plugin': './src/index.ts',
           },
           shared: {
             lit: {
               singleton: true,
               requiredVersion: '^3.2.0',
             },
-          }
+          },
         }),
       ],
     },
