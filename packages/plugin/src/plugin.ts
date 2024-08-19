@@ -11,7 +11,7 @@ export class PluginElement extends LitElement {
   render() {
     return html`
       <div class="content">
-        <h1>Plugin</h1>
+        <h1>Plugin Quick Test!</h1>
       </div>
     `;
   }

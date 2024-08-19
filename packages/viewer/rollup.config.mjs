@@ -7,8 +7,13 @@ import generatePackageJson from 'rollup-plugin-generate-package-json';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import css from 'rollup-plugin-css-only';
 
 export default {
+  watch: {
+    exclude: 'node_modules/**',
+    include: 'src/**',
+  },
   input: './src/index.ts',
   plugins: [
     // Clear the build directory
@@ -21,6 +26,8 @@ export default {
     json(),
     // Handle TypeScript files
     typescript(),
+    // Handle CSS files
+    css({ output: 'index.css' }),
     // Minify JS
     terser({
       ecma: 2021,
@@ -31,7 +38,7 @@ export default {
     summary(),
     generatePackageJson({
       baseContents: {
-        name: '@accuris/plugin',
+        name: '@accuris/viewer',
         version: '0.0.1',
         main: 'index.js',
       },

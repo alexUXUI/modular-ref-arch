@@ -11,6 +11,7 @@ export class ViewerElement extends LitElement {
     return html`
       <div class="content">
         <h1>Viewer</h1>
+        <plugin-element></plugin-element>
       </div>
     `;
   }
