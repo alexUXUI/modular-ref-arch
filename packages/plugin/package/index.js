@@ -1,1 +1,1 @@
-import("./plugin-bbad1584.js");
+const e=e=>{console.log("[Kernel] RegisterPlugin",e),import("./plugin-14e462a7.js").then((e=>{customElements.define("plugin-element",e.PluginElement)}))};"development"===process.env.NODE_ENV&&e(window);export{e as register};

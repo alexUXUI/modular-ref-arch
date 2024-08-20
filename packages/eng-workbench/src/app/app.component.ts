@@ -20,19 +20,16 @@ export class AppComponent {
         remotes: [
           {
             name: 'viewer',
-            entry: 'http://localhost:4000/mf-manifest.json',
-          },
-          {
-            name: 'plugin',
-            entry: 'http://localhost:4001/mf-manifest.json',
+            // EWB **DOES NOT** knwo this URL. It must reach out to registry to get it.
+            entry: 'http://localhost:4000/mf-manifest.json', // SHOULD BE DYNAMIC
           },
         ],
       });
 
-      const md = await loadRemote<{ add: (...args: Array<number>) => number }>(
-        'viewer/viewer',
-      );
-      console.log('Viewer module loaded:', md);
+      const viewerModule = await loadRemote('viewer/viewer');
+
+      console.log('Viewer module loaded:', viewerModule);
+
     } catch (error) {
       console.error('Error loading Viewer module:', error);
     }

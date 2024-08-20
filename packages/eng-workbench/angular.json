@@ -17,6 +17,9 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
+						"allowedCommonJsDependencies": [
+							"@module-federation/enhanced/runtime"
+						],
 						"outputPath": "dist/eng-workbench",
 						"index": "src/index.html",
 						"main": "src/main.ts",
@@ -110,5 +113,8 @@
 				}
 			}
 		}
+	},
+	"cli": {
+		"analytics": false
 	}
 }

@@ -1,5 +1,5 @@
 {
-  "name": "accuris-plugin",
+  "name": "@accuris/plugin",
   "version": "0.0.1",
   "main": "index.js"
 }

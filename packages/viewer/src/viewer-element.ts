@@ -10,7 +10,7 @@ export class ViewerElement extends LitElement {
   render() {
     return html`
       <div class="content">
-        <h1>Viewer</h1>
+        <h1>Viewer - test!</h1>
         <plugin-element></plugin-element>
       </div>
     `;

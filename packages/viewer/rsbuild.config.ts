@@ -18,13 +18,12 @@ export default defineConfig({
       plugins: [
         new ModuleFederationPlugin({
           name: 'viewer',
-          remotes: {
-            plugin: 'plugin@http://localhost:4001/mf-manifest.json',
-          },
+          // remotes: {
+          //   plugin: 'plugin@http://localhost:4001/mf-manifest.json',
+          // },
           exposes: {
             './viewer': './src/index.ts',
           },
-          // shared: ['lit'],
         }),
       ],
     },

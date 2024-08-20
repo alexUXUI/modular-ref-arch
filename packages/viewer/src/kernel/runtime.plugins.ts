@@ -64,7 +64,7 @@ export class RuntimePlugins {
 
           if (Object.hasOwnProperty.call(_remote, 'register')) {
             console.log('[federation][remote register]');
-            _remote.register(this);
+            _remote.register(this); // should be event based
           }
         } else {
           console.log('[federation][remote load failed]');
